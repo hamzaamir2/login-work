@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+  <h1> welcome to Dashboard</h1>
+  <button id="logoutBtn" >Logout</button>
+<script>
+  $(document).ready(function(){
+    if(localStorage.getItem('dashboard') !== 'true'){
+      alert('Please login first!');
+      window.location.href = 'login.html';
+    }
+
+    $('#logoutBtn').click(function(){
+      localStorage.removeItem('dashboard');
+      window.location.href = 'login.html';
+    });
+  });
+</script>
+
+</body>
+</html>

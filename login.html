@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            $("#login").click(function(){
+                
+                var email = $("#email").val();
+                var password = $("#password").val();
+               
+                if(email == ""){
+                    $("#email").removeClass("is-valid")
+                    $("#email").addClass("is-invalid")
+                }else{
+                    $("#email").removeClass("is-invalid")
+                    $("#email").addClass("is-valid")
+                }
+                if(password == ""){
+                    $("#password").removeClass("is-valid")
+                    $("#password").addClass("is-invalid")
+                }else{
+                    $("#password").removeClass("is-invalid")
+                    $("#password").addClass("is-valid")
+                }
+                // All Fields Filled
+                if(email != "" && password != ""){
+    if(email == localStorage.getItem("email") && password ==  localStorage.getItem("password")){
+        // Set login flag
+        localStorage.setItem('dashboard', 'true');
+        location.assign('dashboard.html');
+    }else{
+        alert("Email Or Password Not Correct");
+    }
+}
+            })
+        })
+    </script>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                 <div class="card">
+                    <div class="card-body" style="border: 2px solid rgb(242, 54, 211);">
+                           
+                            <input class="form-control mb-3" type="email" id="email" placeholder="email address">
+                            <input class="form-control mb-3" type="password" id="password" placeholder="password here">
+                            <button id="login" class="btn btn-primary">Login</button>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+</html>
